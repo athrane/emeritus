@@ -1,0 +1,8 @@
+OP AUTHORS:
+
+- ops by cables user pandur (https://cables.gl/user/pandur)
+- ops by cables user simod (https://cables.gl/user/simod)
+- ops by cables user thrane (https://cables.gl/user/thrane)
+- ops by cables user tim (https://cables.gl/user/tim)
+
+cables is build on open source software and community contributions, check https://cables.gl/support
