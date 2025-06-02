@@ -4,6 +4,7 @@ Visualization of an old man living in a house.
 ## Installing the agent code into the Cables.gl patch
 
 The agent code is implemented by the athrane/emeritus-agent repository.
+
 To install the bundle build into the Cables.gl patch, follow these steps:
 
 ### Create versioned bundle.js file
@@ -26,4 +27,43 @@ To install the bundle build into the Cables.gl patch, follow these steps:
 * Locate and open the `RunAgent` operator.
 * Locate the LIBS section of the configuration, delete reference to the used `bundle-DDMMYY.js` file. 
 * Look in the Cables.gl log and fix the errors.
+
+### How to re-create the RunAgent operator if Cables.gl deletes it
+
+In some cases Cables.gl will delete the `runAgent` operator. The can happen if code errors or interfaces changes in the agent code that break to JavaScript ode in the operator.
+
+If the operator gets deleted, follow these steps to re-create the operator:
+
+* Add this logic t the operator:
+
+```javascript
+Ops.User.thrane.runAgent2 = function()
+{
+CABLES.Op.apply(this,arguments);
+const op=this;
+const attachments=op.attachments={};
+// welcome to your new op!
+// have a look at the documentation:
+// https://cables.gl/docs/5_writing_ops/dev_ops/dev_ops
+
+const
+    exec = op.inTrigger("Trigger"),
+    myOutPort = op.outString("Intention"),
+    myOutPort2 = op.outNumber("Hunger");
+
+// create agent
+var oldMan=AgentFactory.createOldManAgent();
+
+exec.onTriggered = () =>
+{
+    oldMan.run();
+
+    let currentIntention = oldMan.getCurrentIntention();
+    myOutPort.set(currentIntention.name);
+
+    let hunger = oldMan.getBelief("hunger").getValue()
+    myOutPort2.set(hunger);
+};
+```
+
 
