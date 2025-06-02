@@ -30,13 +30,19 @@ To install the bundle build into the Cables.gl patch, follow these steps:
 
 ### How to re-create the RunAgent operator if Cables.gl deletes it
 
-In some cases Cables.gl will delete the `runAgent` operator. The can happen if code errors or interfaces changes in the agent code that break to JavaScript ode in the operator.
+In some cases Cables.gl will delete the `runAgent` operator from the patch. 
+The can happen if code errors or interfaces changes in the agent code that break to JavaScript ode in the operator.
 
 If the operator gets deleted, follow these steps to re-create the operator:
 
-* Add this logic t the operator:
-
+* On the patch canvas, press ESC to add an operator.
+* Write `RunAgent`and select the `Ops.User.thrane.RunAgent2` operator.
+* Select `View Documentation`.
+* Scroll to the bottom of the page and select `Edit Op Code`
+* Update the code to fix any error and/or adopt to changes in the agent code:
+   
 ```javascript
+
 Ops.User.thrane.runAgent2 = function()
 {
 CABLES.Op.apply(this,arguments);
