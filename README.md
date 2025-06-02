@@ -36,14 +36,14 @@ The can happen if code errors or interfaces changes in the agent code that break
 If the operator gets deleted, follow these steps to re-create the operator:
 
 * On the patch canvas, press ESC to add an operator.
-* Write `RunAgent`and select the `Ops.User.thrane.RunAgent2` operator.
+* Write `RunAgent`and select the `Ops.User.thrane.RunAgent` operator.
 * Select `View Documentation`.
 * Scroll to the bottom of the page and select `Edit Op Code`
 * Update the code to fix any error and/or adopt to changes in the agent code:
    
 ```javascript
 
-Ops.User.thrane.runAgent2 = function()
+Ops.User.thrane.RunAgent = function()
 {
 CABLES.Op.apply(this,arguments);
 const op=this;
@@ -71,5 +71,3 @@ exec.onTriggered = () =>
     myOutPort2.set(hunger);
 };
 ```
-
-
