@@ -27,7 +27,7 @@ To install the bundle build into the cables.gl patch, follow these steps:
 * Locate the LIBS section of the configuration, delete reference to the used `bundle-DDMMYY.js` file. 
 * Look in the Cables.gl log and fix the errors.
 
-### How to fix the simulation operators if cables.gl fails to create instance of it 
+## How to fix the simulation operators if cables.gl fails to create instance of it 
 
 In some cases cables.gl will fail to create an instance of the `RunSimulation` and other simulation operators within the patch. 
 The can happen if there are code errors or interfaces changes in the simulation operators code that introduce errors in the JavaScript code in the operator.
