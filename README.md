@@ -1,13 +1,11 @@
 # emeritus
 Visualization of an old man living in a house. 
 
-## Development
-The project is developed in [cables.gl](https://cables.gl/home).
-
 # Usage
-
-## Go to the visualizer page 
 Open a browser and go to [Emeritus GitHub Pages](https://athrane.github.io/emeritus/).
+
+# Development
+The project is developed in [cables.gl](https://cables.gl/home).
 
 ## Installing the agent code into the cables.gl patch
 The agent code is implemented by the athrane/emeritus-agent repository.
